@@ -150,13 +150,23 @@
         .footer-info p { color: var(--text-muted); max-width: 400px; font-size: 14px; }
 
         .footer-socials { display: flex; gap: 15px; }
-        .footer-socials img {
+        .footer-socials .icon {
             width: 24px;
             height: 24px;
             filter: grayscale(1) invert(1);
             opacity: 0.7;
             transition: 0.3s;
         }
+
+        .alert {
+          animation: alert 5s;
+        }
+        
+        @keyframes alert { 
+          from { transfrom: scaleY(1); }
+          to { transform: scaleY(1.5); }
+        }
+        
         .footer-socials img:hover { filter: grayscale(0) invert(0); opacity: 1; color: var(--brand-color); }
 
         .footer-divider {
@@ -225,10 +235,10 @@
                 <p>Not associlated or affilated with Ryan Trahan or ryan300 in <strong>any</strong> way, purley a fan made project.</p>
             </div>
             <div class="footer-socials">
-                <a href="https://ryan3000.netlify.app/alert"><img src="https://ryan3000.netlify.app/media/alert.png"></a>
-                <a href="mailto:content.himynameisbob36@gmail.com"><img src="https://ryan3000.netlify.app/media/mail.png"></a>
-                <a href="https://discord.com/channels/@me"><img src="https://ryan3000.netlify.app/media/discord.png"></a>
-                <a href="https://youtube.com/@heyitsbob36"><img src="https://ryan3000.netlify.app/media/youtube.png"></a>
+                <a href="https://ryan3000.netlify.app/alert"><img class="alert" src="https://ryan3000.netlify.app/media/alert.png"></a>
+                <a href="mailto:content.himynameisbob36@gmail.com"><img class="icon" src="https://ryan3000.netlify.app/media/mail.png"></a>
+                <a href="https://discord.com/channels/@me"><img class="icon" src="https://ryan3000.netlify.app/media/discord.png"></a>
+                <a href="https://youtube.com/@heyitsbob36"><img class="icon" src="https://ryan3000.netlify.app/media/youtube.png"></a>
                 <a href="https://github.com/HiMyNameIsBob36"><img src="https://ryan3000.netlify.app/media/github.png"></a>
             </div>
         </div>
