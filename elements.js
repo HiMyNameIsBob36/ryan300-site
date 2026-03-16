@@ -23,31 +23,18 @@ class MyFooter extends HTMLElement {
       this.innerHTML = `<footer class="footer"><div class="footer-grid">
 
 <div class="footer-brand">
-<h2>Ryan<span>3000</span></h2><p>Discover stats, data & much more regarding Ryan300's journey so far..</p>
+<h2>ryan300.netlify.app</h2><p>Not associated with Ryan Trahan or Ryan300 in <strong>any</strong> way, purely a fan project</p>
 </div>
 
-<div class="footer-column">
-<h4>MARKETPLACE</h4>
-<a href="#">Browse</a><a href="#">Groups</a><a href="#">Talent</a><a href="#">Upload</a>
-</div>
-
-<div class="footer-column">
-<h4>ACCOUNT</h4>
-<a href="#">Profile</a><a href="#">Creator Dashboard</a><a href="#">Support</a><a href="#">Guidelines</a>
-</div>
-
-<div class="footer-column">
-<h4>COMMUNITY</h4>
-<a href="#">Blog</a><a href="#">Affiliates</a>
-</div>
-
-<div class="footer-column">
-<h4>LEGAL</h4>
-<a href="#">Terms</a><a href="#">Privacy</a>
-</div></div>
+<div class="contacts">
+<a href="https://ryan300.netlify.app/alert" class="alert"><img src="../assets/alert.png"></a>
+<a href="mailto:content.himynameisbob36@gmail.com"><img src="../assets/mail.png"></a>
+<a href="https://discord.com/"><img src="../assets/discord.png"></a>
+<a href="https://youtube.com/@HeyItsBob36"><img src="../assets/youtube.png"></a>
+<a href="mailto:content.himynameisbob36@gmail.com"><img src="../assets/github.png"></a>
 
 <div class="footer-bottom">
-Not associated with Ryan Trahan or Ryan300 in <strong>any</strong> way, purely a fan project | © 2026 @HeyItsBob36. All rights reserved.
+ © 2026 @HeyItsBob36. All rights reserved.
 </div>
 
 </footer>`
