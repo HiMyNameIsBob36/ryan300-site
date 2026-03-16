@@ -23,7 +23,7 @@ class MyFooter extends HTMLElement {
       this.innerHTML = `<footer class="footer"><div class="footer-grid">
 
 <div class="footer-brand">
-<h2>ERLC<span>X</span></h2><p>Discover and share high-quality ER:LC assets built by the community.</p>
+<h2>Ryan<span>3000</span></h2><p>Discover stats, data & much more regarding Ryan300's journey so far..</p>
 </div>
 
 <div class="footer-column">
