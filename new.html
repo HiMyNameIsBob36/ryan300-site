@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ryan3000 | Fan Hub</title>
+    <title>@ryan300 | Fan Hub</title>
     <style>
         /* --- CSS STYLES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
         :root {
@@ -23,380 +23,280 @@
         body {
             background: var(--bg-dark);
             color: white;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.7s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* NAVBAR */
+        /* NAVBAR - NEW LAYOUT */
         .navbar {
-            display: flex;
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            align-items: center;
             position: fixed;
             z-index: 100;
             width: 100%;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 30px;
-            background: rgba(11, 17, 28, 0.8);
+            padding: 15px 40px;
+            background: rgba(11, 17, 28, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            gap: 20px;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 24px;
-            letter-spacing: -1px;
+            font-size: 22px;
+            color: white;
+            text-decoration: none;
         }
 
-        .logo span {
-            color: var(--brand-color);
+        .logo span { color: var(--brand-color); }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .search {
-            flex: 1;
-            margin: 0 40px;
-        }
-
-        .search input {
+        .search-container input {
             width: 100%;
             padding: 10px 20px;
-            border-radius: 25px;
+            border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.1);
             background: #141c2a;
             color: white;
             outline: none;
         }
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        #search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1a2436;
+            border-radius: 0 0 8px 8px;
+            display: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border: 1px solid var(--brand-color);
+            margin-top: 5px;
+            max-height: 300px;
+            overflow-y: auto;
         }
 
-        .btn-main {
+        .result-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .result-item:hover { background: var(--brand-color); }
+
+        .submit-tip-btn {
             background: var(--brand-color);
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 10px 24px;
+            border-radius: 8px;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
+            white-space: nowrap;
         }
 
-        .btn-main:hover {
-            filter: brightness(1.2);
-            transform: scale(1.05);
-        }
-
-        /* HERO */
+        /* HERO & MAIN */
         .hero {
-            height: 450px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(5, 11, 20, 1)), 
-                        url("https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1600") center/cover;
+            height: 300px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(rgba(15, 139, 141, 0.2), var(--bg-dark));
             text-align: center;
-            padding: 0 20px;
+            padding-top: 80px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        /* STATS */
-        .stats {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: -50px;
-            padding: 0 20px;
-        }
-
-        .stat {
-            background: rgba(20, 28, 42, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            min-width: 160px;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-
-        .stat h3 {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .stat p {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--brand-color);
-        }
-
-        /* MAIN CONTENT */
         .main {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            padding: 80px 50px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 900px) {
-            .main { grid-template-columns: 1fr; }
-        }
-
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-
-        .section-sub {
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        /* GRID CARDS */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-            text-decoration: none;
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 15px;
-        }
-
-        .card-tag {
-            background: var(--brand-color);
-            font-size: 10px;
-            padding: 3px 8px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        /* SIDEBAR ITEMS */
-        .list-item {
-            display: flex;
-            gap: 15px;
-            background: var(--card-bg);
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-        }
-
-        .list-item img {
-            width: 70px;
-            height: 50px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        /* FOOTER */
-        .footer {
-            margin-top: 100px;
-            padding: 60px 50px 30px;
-            background: #071018;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 50px;
+            padding: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .footer-brand h2 { color: var(--brand-color); margin-bottom: 15px; }
-        .footer-brand p { color: var(--text-muted); line-height: 1.6; }
+        .section-title { font-size: 24px; margin-bottom: 20px; border-left: 4px solid var(--brand-color); padding-left: 15px; }
 
-        .footer-links h4 { margin-bottom: 15px; color: white; }
-        .footer-links a { 
-            display: block; 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            margin-bottom: 8px;
+        .asset-card, .list-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER - NEW LAYOUT */
+        .footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: #071018;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info h2 { color: var(--brand-color); margin-bottom: 10px; }
+        .footer-info p { color: var(--text-muted); max-width: 400px; font-size: 14px; }
+
+        .footer-socials { display: flex; gap: 15px; }
+        .footer-socials img {
+            width: 24px;
+            height: 24px;
+            filter: grayscale(1) invert(1);
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        .footer-socials img:hover { filter: grayscale(0) invert(0); opacity: 1; color: var(--brand-color); }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.05);
+            margin: 30px auto;
+            max-width: 1200px;
         }
 
         .footer-bottom {
-            margin-top: 50px;
-            padding-top: 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: #555;
-            font-size: 13px;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #444;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">@ryan<span>3000</span></div>
-        <div class="search">
-            <input type="text" placeholder="Search COTW, tips, or videos...">
+        <a href="#" class="logo">@ryan<span>300</span></a>
+        
+        <div class="search-container">
+            <input type="text" id="main-search" placeholder="Search creations, users, groups...">
+            <div id="search-results"></div>
         </div>
-        <div class="nav-right">
-            <button class="btn-main">Join the Club</button>
-            <div class="profile">Guest User</div>
-        </div>
+
+        <button class="submit-tip-btn">Submit Tip</button>
     </nav>
 
     <header class="hero">
-        <h1>Welcome to Ryan3000</h1>
-        <p>The ultimate hub for the Penny Challenge and beyond.</p>
-        <button class="btn-main" style="margin-top: 20px;">Latest Video</button>
+        <div>
+            <h1>The Ryan300 Hub</h1>
+            <p>Tips, Tricks, and the Chicken of the Week.</p>
+        </div>
     </header>
-
-    <section class="stats">
-        <div class="stat reveal"><h3>CHICKENS</h3><p id="stat-chickens">42</p></div>
-        <div class="stat reveal"><h3>TIPS</h3><p id="stat-tips">128</p></div>
-        <div class="stat reveal"><h3>PENNY VALUE</h3><p>$0.01</p></div>
-        <div class="stat reveal"><h3>SUBSCRIBERS</h3><p>3.2M</p></div>
-    </section>
 
     <main class="main">
         <section>
-            <h2 class="section-title">Chicken of the Week (COTW)</h2>
-            <p class="section-sub">The finest poultry from across the globe.</p>
-            <div class="grid-container" id="cotw-grid">
-                </div>
+            <h2 class="section-title">Chicken of the Week</h2>
+            <div class="asset-card reveal">
+                <h3>This Week's Champion: Goldie</h3>
+                <p>Stay tuned for the full breakdown!</p>
+            </div>
         </section>
 
         <aside>
             <h2 class="section-title">Tips & Tricks</h2>
-            <p class="section-sub">Level up your game.</p>
-            <div id="tips-list">
-                </div>
+            <div class="list-item reveal">
+                <p><strong>Tip #1:</strong> Always check the penny value before flipping.</p>
+            </div>
         </aside>
     </main>
 
     <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h2>@ryan3000</h2>
-                <p>A fan-made project celebrating the Ryan3000 community. Not affiliated with Ryan Trahan, just huge fans of the journey.</p>
+        <div class="footer-top">
+            <div class="footer-info">
+                <h2>@ryan300</h2>
+                <p>A fan made project not affiliated with Ryan Trahan or Ryan3000 in any way. This is a community space for sharing tips and celebrating the journey.</p>
             </div>
-            <div class="footer-links">
-                <h4>Explore</h4>
-                <a href="#">Penny Challenge</a>
-                <a href="#">Chicken Archives</a>
-                <a href="#">Merch Store</a>
-            </div>
-            <div class="footer-links">
-                <h4>Socials</h4>
-                <a href="https://youtube.com/@RyanTrahan">Main Channel</a>
-                <a href="#">Discord</a>
-                <a href="#">Instagram</a>
+            <div class="footer-socials">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YT"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
             </div>
         </div>
+        
+        <div class="footer-divider"></div>
+
         <div class="footer-bottom">
-            &copy; 2026 @ryan3000 Fan Hub. Built with Penny-pinching precision.
+            (c) trademark 2026 @heyitsbob36. all rights reserved.
         </div>
     </footer>
 
     <script>
-        /* --- DATA & LOGIC --- */
-        const siteData = {
-            cotw: [
-                { name: "The Golden Rooster", id: "01", tag: "Winner", img: "https://picsum.photos/id/1025/400/300" },
-                { name: "Silkie Supreme", id: "02", tag: "Runner Up", img: "https://picsum.photos/id/1024/400/300" }
-            ],
-            tips: [
-                { title: "How to save $1 a day", id: "t1", img: "https://picsum.photos/id/100/100/70" },
-                { title: "Penny Flipping Basics", id: "t2", img: "https://picsum.photos/id/101/100/70" },
-                { title: "Finding the best motels", id: "t3", img: "https://picsum.photos/id/102/100/70" }
-            ]
-        };
+        /* --- SEARCH VARIABLES (CHANGE THESE) --- */
+        const searchableItems = [
+            { name: "How to save money", link: "/tips/saving" },
+            { name: "Best Chickens 2026", link: "/cotw/best" },
+            { name: "Penny Challenge Strategy", link: "/strategy" },
+            { name: "Ryan Trahan Merch", link: "/merch" },
+            { name: "Submit a new tip", link: "/submit" }
+        ];
 
-        // Render Functions
-        function initSite() {
-            const cotwGrid = document.getElementById('cotw-grid');
-            const tipsList = document.getElementById('tips-list');
+        /* --- SEARCH LOGIC --- */
+        const searchInput = document.getElementById('main-search');
+        const resultsDiv = document.getElementById('search-results');
 
-            // Populate Chickens
-            siteData.cotw.forEach(item => {
-                cotwGrid.innerHTML += `
-                    <a href="#" class="card">
-                        <img src="${item.img}" alt="${item.name}">
-                        <div class="card-content">
-                            <span class="card-tag">${item.tag}</span>
-                            <h3>${item.name}</h3>
-                        </div>
-                    </a>
-                `;
-            });
+        searchInput.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            resultsDiv.innerHTML = '';
+            
+            if (val.length < 1) {
+                resultsDiv.style.display = 'none';
+                return;
+            }
 
-            // Populate Tips
-            siteData.tips.forEach(item => {
-                tipsList.innerHTML += `
-                    <a href="#" class="list-item">
-                        <img src="${item.img}" alt="tip">
-                        <p>${item.title}</p>
-                    </a>
-                `;
-            });
-        }
+            const filtered = searchableItems.filter(item => 
+                item.name.toLowerCase().includes(val)
+            );
 
-        // Scroll Animations
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll(".reveal");
-            reveals.forEach((el) => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 50) {
-                    el.classList.add("active");
+            if (filtered.length > 0) {
+                resultsDiv.style.display = 'block';
+                filtered.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'result-item';
+                    div.textContent = item.name;
+                    div.onclick = () => window.location.href = item.link;
+                    resultsDiv.appendChild(div);
+                });
+            } else {
+                resultsDiv.style.display = 'none';
+            }
+        });
+
+        // Close search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target)) resultsDiv.style.display = 'none';
+        });
+
+        /* --- ANIMATIONS --- */
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) {
+                    reveals[i].classList.add("active");
                 }
-            });
+            }
         }
-
-        // Initialize
-        window.addEventListener("scroll", revealOnScroll);
-        window.onload = () => {
-            initSite();
-            revealOnScroll();
-        };
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
     </script>
 </body>
 </html>
