@@ -47,7 +47,7 @@ class MyFooter extends HTMLElement {
 </div></div>
 
 <div class="footer-bottom">
-© 2026 ERLCX. All rights reserved.
+Not associated with Ryan Trahan or Ryan300 in <strong>any</strong> way, purely a fan project | © 2026 @HeyItsBob36. All rights reserved.
 </div>
 
 </footer>`
