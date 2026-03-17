@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ryan300 | Home</title>
+    <style>
+        /* --- CSS STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        :root {
+            --brand-color: #0F8B8D;
+            --bg-dark: #050b14;
+            --card-bg: #0f1624;
+            --text-muted: #8c96aa;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR - NEW LAYOUT */
+        .navbar {
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            align-items: center;
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            padding: 15px 40px;
+            background: rgba(11, 17, 28, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            gap: 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 22px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--brand-color); }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #141c2a;
+            color: white;
+            outline: none;
+        }
+
+        #search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1a2436;
+            border-radius: 0 0 8px 8px;
+            display: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border: 1px solid var(--brand-color);
+            margin-top: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .result-item:hover { background: var(--brand-color); }
+
+        .submit-tip-btn {
+            background: var(--brand-color);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* HERO & MAIN */
+        .hero {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(15, 139, 141, 0.2), var(--bg-dark));
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title { font-size: 24px; margin-bottom: 20px; border-left: 4px solid var(--brand-color); padding-left: 15px; }
+
+        .asset-card, .list-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER - NEW LAYOUT */
+        .footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: #071018;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info h2 { color: var(--brand-color); margin-bottom: 10px; }
+        .footer-info p { color: var(--text-muted); max-width: 400px; font-size: 14px; }
+
+        .footer-socials { display: flex; gap: 15px; }
+        .footer-socials img {
+            width: 24px;
+            height: 24px;
+            filter: grayscale(1) invert(1);
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        
+        .footer-socials img:hover { filter: grayscale(0) invert(0); opacity: 1; color: var(--brand-color); }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.05);
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .footer-bottom {
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #444;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">@ryan<span>3000</span></a>
+        
+        <div class="search-container">
+            <input type="text" id="main-search" placeholder="Search creations, users, groups...">
+            <div id="search-results"></div>
+        </div>
+
+        <a href="https://ryan300.netlify.app/submit-tip" class="submit-tip-btn">Submit Tip</a>
+    </nav>
+
+    <header class="hero">
+        <div>
+            <h1>The Ryan3000 Hub</h1>
+            <p>Tips, Tricks, and the Chicken of the Week.</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <section>
+            <h2 class="section-title">Chicken of the Week</h2>
+            <div class="asset-card reveal">
+                <h3>This Week's Champion: Goldie</h3>
+                <p>Stay tuned for the full breakdown!</p>
+            </div>
+        </section>
+
+        <aside>
+            <h2 class="section-title">Tips & Tricks</h2>
+            <div class="list-item reveal">
+                <p><strong>Tip #1:</strong> Always check the penny value before flipping.</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-info">
+                <h2>@ryan3000</h2>
+                <p>Not associlated or affilated with Ryan Trahan or ryan300 in <strong>any</strong> way, purley a fan made project.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://ryan3000.netlify.app/alert"><img class="alert" src="https://ryan3000.netlify.app/media/alert.png"></a>
+                <a href="mailto:content.himynameisbob36@gmail.com"><img class="icon" src="https://ryan3000.netlify.app/media/mail.png"></a>
+                <a href="https://discord.com/channels/@me"><img class="icon" src="https://ryan3000.netlify.app/media/discord.png"></a>
+                <a href="https://youtube.com/@heyitsbob36"><img class="icon" src="https://ryan3000.netlify.app/media/youtube.png"></a>
+                <a href="https://github.com/HiMyNameIsBob36"><img src="https://ryan3000.netlify.app/media/github.png"></a>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            © 2026 | heyitsbob36 | All rights reserved.
+        </div>
+    </footer>
+
+    <script src="../scripts.js"></script>
+  </body>
+</html>
