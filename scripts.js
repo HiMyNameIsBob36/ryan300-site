@@ -1,10 +1,9 @@
  /* --- SEARCH VARIABLES (CHANGE THESE) --- */
         const searchableItems = [
-            { name: "How to save money", link: "/tips/saving" },
-            { name: "Best Chickens 2026", link: "/cotw/best" },
-            { name: "Penny Challenge Strategy", link: "/strategy" },
-            { name: "Ryan Trahan Merch", link: "/merch" },
-            { name: "Submit a new tip", link: "/submit" }
+            { name: "Chicken of the Week", link: "/cotw" },
+            { name: "View Tips", link: "/tips" },
+            { name: "See total Joyride eaten", link: "/stats#joyride-eaten" },
+            { name: "Submit a Tip", link: "/submit-tip" }
         ];
 
         /* --- SEARCH LOGIC --- */
