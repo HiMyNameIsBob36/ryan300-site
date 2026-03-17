@@ -20,28 +20,32 @@ class MyHeader extends HTMLElement {
 
 class MyFooter extends HTMLElement {
   connectedCallback() {
-      this.innerHTML = `<footer class="footer"><div class="footer-grid">
+      this.innerHTML = `
+       <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-info">
+                <h2>@ryan3000</h2>
+                <p>Not associlated or affilated with Ryan Trahan or ryan300 in <strong>any</strong> way, purley a fan made project.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://ryan3000.netlify.app/alert"><img class="alert" src="https://ryan3000.netlify.app/media/alert.png"></a>
+                <a href="mailto:content.himynameisbob36@gmail.com"><img class="icon" src="https://ryan3000.netlify.app/media/mail.png"></a>
+                <a href="https://discord.com/channels/@me"><img class="icon" src="https://ryan3000.netlify.app/media/discord.png"></a>
+                <a href="https://youtube.com/@heyitsbob36"><img class="icon" src="https://ryan3000.netlify.app/media/youtube.png"></a>
+                <a href="https://github.com/HiMyNameIsBob36"><img src="https://ryan3000.netlify.app/media/github.png"></a>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
 
-<div class="footer-brand">
-<h2>ryan300.netlify.app</h2><p>Not associated with Ryan Trahan or Ryan300 in <strong>any</strong> way, purely a fan project</p>
-</div>
-
-<div class="contacts">
-<a href="https://ryan300.netlify.app/alert" class="alert"><img src="../assets/alert.png"></a>
-<a href="mailto:content.himynameisbob36@gmail.com"><img src="../assets/mail.png"></a>
-<a href="https://discord.com/"><img src="../assets/discord.png"></a>
-<a href="https://youtube.com/@HeyItsBob36"><img src="../assets/youtube.png"></a>
-<a href="mailto:content.himynameisbob36@gmail.com"><img src="../assets/github.png"></a>
-
-<div class="footer-bottom">
- © 2026 @HeyItsBob36. All rights reserved.
-</div>
-
-</footer>`
-  }
+        <div class="footer-bottom">
+            © 2026 | heyitsbob36 | All rights reserved.
+        </div>
+    </footer>
+    ` }
 }
 
-customElements.define('my-header', MyHeader)
-customElements.define('my-legal', MyFooter)
+customElements.define('site-header', SiteHeader)
+customElements.define('site-footer', SiteFooter)
 
 console.log("Loading custom header & footer.")
