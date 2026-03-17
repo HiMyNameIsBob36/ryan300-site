@@ -35,7 +35,7 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
   const message = document.getElementById("message").value;
 
   const { data, error } = await supabaseClient
-    .from("submissions")
+    .from("submittions")
     .insert([
       { name: name, email: email, message: message }
     ]);
