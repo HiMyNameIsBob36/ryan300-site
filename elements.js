@@ -11,7 +11,7 @@ class SiteHeader extends HTMLElement {
             <div id="search-results"></div>
         </div>
 
-        <a href="https://ryan300.netlify.app/submit-tip" class="submit-tip-btn">Submit Tip</a>
+        <a href="https://ryan3000.netlify.app/submit-tip" class="submit-tip-btn">Submit Tip</a>
     </nav> 
   ` }
 }
