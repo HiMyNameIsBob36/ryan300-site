@@ -1,5 +1,5 @@
 //OOP - Inheritence
-class MyHeader extends HTMLElement {
+class SiteHeader extends HTMLElement {
   connectedCallback() {
       this.innerHTML = `
 <div class="navbar">
@@ -18,7 +18,7 @@ class MyHeader extends HTMLElement {
 }
 
 
-class MyFooter extends HTMLElement {
+class SiteFooter extends HTMLElement {
   connectedCallback() {
       this.innerHTML = `
        <footer class="footer">
