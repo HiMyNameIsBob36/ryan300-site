@@ -26,7 +26,7 @@
 const supabaseUrl = "https://amwbrhntevyesphzcmrd.supabase.co";
 const supabaseKey = "sb_secret_BK5-A34Qgnlsl5i2Ep2A-A_1GagxeyS";
 
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         document.getElementById("contact-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -35,7 +35,7 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("submissions")
     .insert([
       { name: name, email: email, message: message }
