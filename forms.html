@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Meet the Team | NSWRP</title>
+    <link rel="stylesheet" href="../navigation.css">
+    <link rel="stylesheet" href="../meet-the-team/profiles.css">
+    <script src="../meet-the-team/staff.js" type="module"></script>
+    <script src="../scripts.js" defer></script>
+    <link rel="icon" href="../media/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Meet the Team | NSWRP" />
+    <meta property="og:description" content="View the team that runs NSWRP!" />
+    <meta property="og:image" content="https://aunsw.netlify.app/media/logo.png" />
+    <meta name="theme-color" content="#e67e22">
+</head>
+ <html>
+   <body>
+
+     <form id="contact-form">
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <textarea id="message" placeholder="Message"></textarea>
+  <button type="submit">Send</button>
+</form>
+
+
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+     <script>
+const supabaseUrl = "https://amwbrhntevyesphzcmrd.supabase.co";
+const supabaseKey = "sb_secret_BK5-A34Qgnlsl5i2Ep2A-A_1GagxeyS";
+
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+</script>
+     
+   </body>
+ </html>
