@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>@ryan300 | Forms</title>
-    <link rel="icon" href="../media/logo.png" type="image/x-icon">
+   <title>@ryan3000 | Home</title>
+    <link rel="icon" href="../media/alert.png" type="image/x-icon">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../mixed.css">
+    <script src="../scripts.js" defer ></script>
+    <script src="../elements.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Meet the Team | NSWRP" />
-    <meta property="og:description" content="View the team that runs NSWRP!" />
-    <meta property="og:image" content="https://ryan300.netlify.app/media/alert.png" />
-    <meta name="theme-color" content="#e67e22">
+    <meta property="og:title" content="@ryan3000 | Home" />
+    <meta property="og:description" content="Welcome to the @ryan3000 site! You can submit tips, view stats & more!" />
+    <meta name="theme-color" content="#0F8B8D">
 </head>
-   <body>
+<body>
+
+   <site-header></site-header>
 
      <form id="contact-form">
   <input type="text" id="name" placeholder="Name" required>
@@ -48,7 +53,6 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
   }
 });
         
-</script>
-     
+</script>    
    </body>
  </html>
