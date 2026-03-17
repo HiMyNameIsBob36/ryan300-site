@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>Meet the Team | NSWRP</title>
-    <link rel="stylesheet" href="../navigation.css">
-    <link rel="stylesheet" href="../meet-the-team/profiles.css">
-    <script src="../meet-the-team/staff.js" type="module"></script>
-    <script src="../scripts.js" defer></script>
+   <title>@ryan300 | Forms</title>
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Meet the Team | NSWRP" />
     <meta property="og:description" content="View the team that runs NSWRP!" />
-    <meta property="og:image" content="https://aunsw.netlify.app/media/logo.png" />
+    <meta property="og:image" content="https://ryan300.netlify.app/media/alert.png" />
     <meta name="theme-color" content="#e67e22">
 </head>
  <html>
@@ -31,6 +27,28 @@ const supabaseUrl = "https://amwbrhntevyesphzcmrd.supabase.co";
 const supabaseKey = "sb_secret_BK5-A34Qgnlsl5i2Ep2A-A_1GagxeyS";
 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const { data, error } = await supabase
+    .from("submissions")
+    .insert([
+      { name: name, email: email, message: message }
+    ]);
+
+  if (error) {
+    alert("Error sending message");
+    console.log(error);
+  } else {
+    alert("Message sent!");
+  }
+});
+        
 </script>
      
    </body>
