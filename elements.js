@@ -2,19 +2,18 @@
 class SiteHeader extends HTMLElement {
   connectedCallback() {
       this.innerHTML = `
-<div class="navbar">
-<div class="logo">ERLC<span>X</span></div>
 
-<form method="get">
-<div class="search"><input placeholder="Search creations, users, groups..."></div>
-</form>
+    <nav class="navbar">
+        <a href="#" class="logo">@ryan<span>3000</span></a>
+        
+        <div class="search-container">
+            <input type="text" id="main-search" placeholder="Search creations, users, groups...">
+            <div id="search-results"></div>
+        </div>
 
-<div class="nav-right">
-<button class="create-btn">+ Create New</button>
-<div class="profile">HeyItBob36</div>
-</div>
-</div>`
-  }
+        <a href="https://ryan300.netlify.app/submit-tip" class="submit-tip-btn">Submit Tip</a>
+    </nav> 
+  ` }
 }
 
 
